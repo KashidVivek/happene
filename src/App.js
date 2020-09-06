@@ -5,6 +5,7 @@ import { Icon } from "leaflet";
 import { GeoSearchControl, OpenStreetMapProvider } from 'leaflet-geosearch';
 import * as inputData from "./sample.json"
 import './App.css';
+import useSwr from "swr";
 import './leaflet-search.css'
 import Geocode from "react-geocode";
 
@@ -38,6 +39,7 @@ class App extends React.Component {
         show:showEvent
     })
   }
+
   changeLocation = (viewPort) =>{
     console.log(viewPort.center)
     Geocode.setApiKey("AIzaSyAJymTbHGi6YwH8H-LDIkjBk7s-hDP5nCM");
@@ -50,6 +52,8 @@ class App extends React.Component {
         const st = response.results[0].address_components[4].short_name;
         console.log(city);
         console.log(st);
+        const url = "http://localhost:8081/scrape+?state=${st}+?city=${city}"
+
       },
       error => {
         console.error(error);
@@ -102,59 +106,3 @@ class App extends React.Component {
 }
 
 export default App;
-
-//
-// import React from "react";
-// import { Map, Marker, Popup, TileLayer } from "react-leaflet";
-// import { Icon } from "leaflet";
-// import * as parkData from "./sample.json";
-// import "./App.css";
-//
-// export const icon = new Icon({
-//   iconUrl: "/skateboarding.svg",
-//   iconSize: [25, 25]
-// });
-//
-// export default function App() {
-//   const [activePark, setActivePark] = React.useState(null);
-//
-//   return (
-//     <Map center={[29.624533, -82.374590]} zoom={12}>
-//       <TileLayer
-//         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-//         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-//       />
-//
-//       {parkData.features.map(park => (
-//         <Marker
-//           key={park.description}
-//           position={[
-//             park.location[0],
-//             park.location[1]
-//           ]}
-//           onClick={() => {
-//             setActivePark(park);
-//           }}
-//           icon={icon}
-//         />
-//       ))}
-//
-//       {activePark && (
-//         <Popup
-//           position={[
-//             activePark.location[0],
-//             activePark.location[1]
-//           ]}
-//           onClose={() => {
-//             setActivePark(null);
-//           }}
-//         >
-//           <div>
-//             <h2>{activePark.description}</h2>
-//             <p>{activePark.time}</p>
-//           </div>
-//         </Popup>
-//       )}
-//     </Map>
-//   );
-// }
