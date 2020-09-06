@@ -6,6 +6,7 @@ import { GeoSearchControl, OpenStreetMapProvider } from 'leaflet-geosearch';
 import * as inputData from "./sample.json"
 import './App.css';
 import './leaflet-search.css'
+import Geocode from "react-geocode";
 
 
 class SearchMap extends MapControl {
@@ -26,7 +27,7 @@ class SearchMap extends MapControl {
 
 class App extends React.Component {
   state = {
-      description:null,time:null,location:null,url:"null",show:false
+      description:null,time:null,location:[29.614805, -82.378831],url:"null",show:false
   }
   setActive = (descript,tim,loc,ur,showEvent) =>{
     this.setState({
@@ -37,11 +38,30 @@ class App extends React.Component {
         show:showEvent
     })
   }
+  changeLocation = (viewPort) =>{
+    console.log(viewPort.center)
+    Geocode.setApiKey("AIzaSyAJymTbHGi6YwH8H-LDIkjBk7s-hDP5nCM");
+    Geocode.setLanguage("en");
+    Geocode.setRegion("es");
+    Geocode.enableDebug();
+    Geocode.fromLatLng(viewPort.center[0], viewPort.center[1]).then(
+      response => {
+        const city = response.results[0].address_components[2].short_name;
+        const st = response.results[0].address_components[4].short_name;
+        console.log(city);
+        console.log(st);
+      },
+      error => {
+        console.error(error);
+      }
+    );
+  }
+
   render(){
   const SearchBar = withLeaflet(SearchMap);
-
+  console.log(this.state.location)
   return (
-    <Map center={[29.614805, -82.378831]} zoom={12}>
+    <Map center={[this.state.location[0],this.state.location[1]]} zoom={12} onViewportChanged={this.changeLocation}>
       <SearchBar />
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
