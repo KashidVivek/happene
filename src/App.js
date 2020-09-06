@@ -87,7 +87,7 @@ class App extends React.Component {
             this.state.location[1]
           ]}
           onClose={() => {
-            this.setActive("cur.description","cur.time","cur.location","cur.url",false);
+            this.setActive("cur.description","cur.time",[29.614805, -82.378831],"cur.url",false);
           }}
         >
           <div>
