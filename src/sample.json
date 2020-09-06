@@ -1,0 +1,46 @@
+{
+"features":[
+  {
+    "description":"Welcome Pineapple Sign",
+    "time":"Sat 9/5 @ 4:00 pm",
+    "location":[29.621754, -82.3528],
+    "url":"https://www.paintingwithatwist.com/studio/gainesville/event/2504343/"
+  },
+  {
+    "description":"Colorful Dragonflies",
+    "time":"Sat 9/5 @ 1:00 pm",
+    "location":[29.614805, -82.378831],
+    "url":"https://www.paintingwithatwist.com/studio/gainesville/event/2504377/"
+  },
+  {
+    "description":"Ken Block & Drew Copeland",
+    "time":"Thu 9/3 [ +3 dates]",
+    "location":[29.614805, -82.378831],
+    "url":"https://www.rutheckerdhall.com/event/ken-block-drew-copeland"
+  },
+  {
+    "description":"Basic Handgun / Concealed",
+    "time":"Sat 9/5 @ 9:00 am",
+    "location":[29.614805, -82.378831],
+    "url":"http://store.shootgtr.com/product/basic-handgun/"
+  },
+  {
+    "description":"Saturday Multi-Level Clinic",
+    "time":"Sat 8/22 [ +4 dates]",
+    "location":[29.614805, -82.378831],
+    "url":"http://dbtennis.com/about-db/events/item/saturday-multi-level-clinic"
+  },
+  {
+    "description":"Florida Gators vs.",
+    "time":"Sat 9/5 @ 12:00 pm",
+    "location":[29.614805, -82.378831],
+    "url":"http://events.actionnewsjax.com.eventful.com/gainesville/events/florida-gators-vs-eastern-washington-eagles-/E0-001-134830061-9"
+  },
+  {
+    "description":"Florida Gators Football Parking",
+    "time":"Sat 9/5 @ 1:01 pm",
+    "location":[29.614805, -82.378831],
+    "url":"http://events.actionnewsjax.com.eventful.com/gainesville/events/florida-gators-football-parking-/E0-001-132621696-5"
+  }
+  ]
+}
